@@ -5,7 +5,7 @@ var removedCounter = 0;
 var removedNames = '';
 
 // Walker options
-var walker  = walk.walk('src/templates', { followLinks: false });
+var walker  = walk.walk('../roxhill-docker/src/roxhill-app/src/templates', { followLinks: false });
 
 walker.on('file', function(root, stat, next) {
   // Add this file to the list of templates
@@ -22,7 +22,7 @@ walker.on('end', function() {
 
 function grep(template) {
     var search = template.substring(38, template.indexOf('.html')) + '\'',
-        dir = 'src/scripts/views',
+        dir = '../roxhill-docker/src/roxhill-app/src/scripts/views',
         cmd = 'git grep "' + search + '"',
         options = {
           cwd: dir
